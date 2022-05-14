@@ -1,16 +1,21 @@
+import { useState } from "react";
 import { TodoList } from "./components/TodoList";
 
+const INITIAL_STATE = [
+  {
+    name: "Learn React",
+    complete: true,
+    id: 1,
+  },
+  {
+    name: "Learn TypeScript",
+    complete: true,
+    id: 2,
+  },
+];
+
 function App() {
-  const Todos = [
-    {
-      name: "Learn React",
-      complete: true,
-    },
-    {
-      name: "Learn TypeScript",
-      complete: true,
-    },
-  ];
+  const [todos, setTodos] = useState(INITIAL_STATE);
 
   return (
     <div
@@ -22,7 +27,7 @@ function App() {
         borderRadius: "10px",
       }}
     >
-      <TodoList todos={Todos} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 }
