@@ -9,6 +9,7 @@ export const CreateTodo = ({ todos, setTodos }) => {
     if (!name || name.length < 2) return alert("Please enter a name");
 
     setTodos([...todos, { name, complete: false, id: todos.length + 2 }]);
+    nameRef.current.value = "";
   };
 
   return (
